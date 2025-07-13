@@ -8,7 +8,7 @@ const HeroSection = () => {
       </div>
 
       {/* Center Background Text */}
-      <div style={styles.backgroundText}>LABLEX</div>
+      <div style={styles.backgroundText}>LABELEX</div>
 
       {/* Can Image */}
       <div style={styles.imageContainer}>
@@ -35,7 +35,7 @@ const styles = {
     position: "relative",
     width: "100%",
     height: "100vh",
-    backgroundColor: "white",
+    backgroundColor: "#08141c",
     color: "black",
     fontFamily: "'Helvetica Neue', sans-serif",
     overflow: "hidden",
@@ -62,8 +62,8 @@ const styles = {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    fontSize: "380px",
-    color: "rgba(228, 116, 41, 0.3)",
+    fontSize: "340px",
+    color: "rgba(226, 196, 175, 0.3)",
     fontWeight: "bold",
     zIndex: 0,
     letterSpacing: "-5px",
