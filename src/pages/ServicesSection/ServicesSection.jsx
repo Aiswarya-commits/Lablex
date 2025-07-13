@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import Navbar from "../Navbar/Navbar";
 import { useNavigate } from "react-router-dom";
-import Footer from "../Footer/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import print from "../../assets/print.png";
-import quality from "../../assets/quality.png"
-import col from "../../assets/col.png"
+import quality from "../../assets/quality.png";
+import col from "../../assets/col.png";
 
 const ServiceSection = () => {
   const navigate = useNavigate();
@@ -18,50 +16,34 @@ const ServiceSection = () => {
     event: "",
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      console.log("Form submitted:", formData);
-      navigate("/success");
-    }, 2000);
-  };
-  const eventsList = [
-    "MICHAEL SMITH IN CONCERT",
-    "STREET ART FEST",
-    "ANABELLE IN CONCERT",
-    "90'S DISCO NIGHT",
-    "MODERN BALLET",
-    "SMOKE SHOW",
-    "DJ NIGHT",
-    "DJ ON RENT IN BHIWADI",
-    "COCKTAIL PARTY",
-    "WATER THEME PARTY",
-  ];
-
   const styles = {
+    wrapper: {
+      background: "#08141c",
+      color: "white",
+      paddingTop: "80px", // margin from top (for space below the link)
+      paddingBottom: "60px",
+      fontFamily: "Arial, sans-serif",
+    },
+    heading: {
+      textAlign: "center",
+      fontSize: "2.5rem",
+      marginBottom: "60px",
+      color: "#e74c3c",
+    
+    },
     page: {
       display: "flex",
       justifyContent: "center",
-      alignItems: "center",
-      height: "100vh",
-      background: "#fff",
-      fontFamily: "Arial, sans-serif",
-      color: "white",
+      alignItems: "flex-start",
       gap: "200px",
+      flexWrap: "wrap",
+      marginTop: "150px",
     },
     imageStack: {
       position: "relative",
       width: "280px",
       height: "500px",
       marginBottom: "100px",
-      marginRight: "100px",
     },
     imgCommon: {
       position: "absolute",
@@ -71,85 +53,59 @@ const ServiceSection = () => {
       overflow: "hidden",
       boxShadow: "0 10px 30px rgba(255, 255, 255, 0.1)",
     },
-    loginBox: {
-      background: "#fff",
-      padding: "40px",
-      borderRadius: "12px",
-      width: "450px",
-      boxShadow: "0 0 10px #222",
+    textBlock: {
+      maxWidth: "500px",
+      marginLeft: "100px",
     },
-    logo: {
-      fontFamily: "'Grand Hotel', cursive",
-      fontSize: "40px",
-      textAlign: "center",
-      marginBottom: "20px",
-      color: "#800080",
+    sectionTitle: {
+      display: "flex",
+      alignItems: "center",
+      gap: "10px",
     },
-    input: {
-      width: "100%",
-      padding: "12px",
-      margin: "10px 0",
-      background: "white",
-      border: "1px solid #333",
-      borderRadius: "6px",
-      color: "#000",
+    icon: {
+      width: "70px",
     },
-    button: {
-      width: "100%",
-      padding: "12px",
-      margin: "10px 0",
-      backgroundColor: "#800080",
-      border: "none",
-      borderRadius: "6px",
-      fontWeight: "bold",
-      cursor: "pointer",
-      color: "#fff",
-    },
-    divider: {
-      textAlign: "center",
-      margin: "15px 0",
-      position: "relative",
-      color: "#666",
-    },
-    dividerLine: {
-      content: "''",
-      height: "1px",
-      background: "#333",
-      position: "absolute",
-      top: "50%",
-      width: "45%",
-    },
-    fbButton: {
-      backgroundColor: "transparent",
-      border: "none",
-      color: "#0095f6",
-      fontWeight: "bold",
-      margin: "10px 0",
-      cursor: "pointer",
-    },
-    forgot: {
-      textAlign: "center",
-      color: "#999",
-      fontSize: "14px",
+    paragraph: {
       marginTop: "10px",
+      marginBottom: "10px",
     },
-    signupBox: {
-      textAlign: "center",
-      marginTop: "20px",
-      fontSize: "14px",
-      color: "#ccc",
-    },
-    signupLink: {
-      color: "#0095f6",
+    readMore: {
+      color: "white",
       cursor: "pointer",
-      marginLeft: "5px",
+      display: "inline-block",
     },
   };
 
   return (
-    <div>
+    <div style={styles.wrapper}>
+      {/* Heading under "See Our Products" */}
+      <h2 style={{...styles.heading,                fontFamily: "cursive",
+
+}}>
+        Where precision meets <br />
+        <span style={{ marginLeft: "280px", color: "white", fontSize: "50px" }}>
+          {" "}
+          print perfection.
+        </span>
+      </h2>
+
       <div style={styles.page}>
+        {/* Rotated Image Stack */}
         <div style={styles.imageStack}>
+          <div
+  style={{
+    background: "linear-gradient(135deg, #ff512f, #dd2476)", // orange to pink gradient
+    borderRadius: "50%",
+    width: "550px",
+    height: "550px",
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    zIndex: 0,
+  }}
+></div>
+
           <div
             style={{
               ...styles.imgCommon,
@@ -157,7 +113,6 @@ const ServiceSection = () => {
               transform: "rotate(-10deg)",
               top: "100px",
               left: "0px",
-              right: "100px",
             }}
           >
             <img
@@ -166,6 +121,7 @@ const ServiceSection = () => {
               style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />
           </div>
+
           <div
             style={{
               ...styles.imgCommon,
@@ -181,6 +137,7 @@ const ServiceSection = () => {
               style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />
           </div>
+
           <div
             style={{
               ...styles.imgCommon,
@@ -198,62 +155,60 @@ const ServiceSection = () => {
                 height: "100%",
                 objectFit: "cover",
                 transform: "rotate(3deg)",
-                right: "100px",
               }}
             />
           </div>
         </div>
 
-        <div style={{ color: "black" }}>
+        {/* Text Content */}
+        <div style={styles.textBlock}>
           <div>
-            <div style={{ display: "flex" }}>
-              <img src={print} alt="" style={{ width: "70px" }} />
-              <h3 style={{ color: "black" }}> Precision Printing</h3>
+            <div style={styles.sectionTitle}>
+              <img src={print} alt="" style={styles.icon} />
+              <h3 style={{ color: "#e74c3c" }}>Precision Printing</h3>
             </div>
-            <p>
+            <p style={styles.paragraph}>
               We utilize advanced printing technology and state-of-the-art
-              equipment <br /> to deliver premium-quality labels that meet
-              international standards. Every <br /> print is sharp, vibrant, and
-              built to impress.
+              equipment to deliver premium-quality labels that meet
+              international standards. Every print is sharp, vibrant, and built
+              to impress.
             </p>
-            <p>
+            <p style={styles.readMore}>
               Read More <FontAwesomeIcon icon={faArrowRight} size="sm" />
             </p>
-          </div>{" "}
+          </div>
           <br />
           <div>
-            <div style={{ display: "flex" }}>
-              <img src={quality} alt="" style={{ width: "70px" }} />
-              <h3 style={{ color: "black" }}> Unmatched Quality</h3>
+            <div style={styles.sectionTitle}>
+              <img src={quality} alt="" style={styles.icon} />
+              <h3 style={{ color: "#e74c3c" }}>Unmatched Quality</h3>
             </div>
-            <p>
+            <p style={styles.paragraph}>
               Exceptional quality is our signature. With meticulous attention to
-              detail and <br /> timely execution, we ensure flawless results
-              every time—so your brand looks <br />
-              its absolute best.
+              detail and timely execution, we ensure flawless results every
+              time—so your brand looks its absolute best.
             </p>
-            <p>
+            <p style={styles.readMore}>
               Read More <FontAwesomeIcon icon={faArrowRight} size="sm" />
             </p>
-          </div>{" "}
+          </div>
           <br />
           <div>
-            <div style={{ display: "flex" }}>
-              <img src={col} alt="" style={{ width: "70px" }} />
-              <h3 style={{ color: "black" }}> Creative Collaboration</h3>{" "}
+            <div style={styles.sectionTitle}>
+              <img src={col} alt="" style={styles.icon} />
+              <h3 style={{ color: "#e74c3c" }}>Creative Collaboration</h3>
             </div>
-            <p>
+            <p style={styles.paragraph}>
               From initial concept to final production, we work hand-in-hand
-              with you to bring <br /> your vision to life. Our team offers
-              expert guidance through every stage of your <br /> label journey.
+              with you to bring your vision to life. Our team offers expert
+              guidance through every stage of your label journey.
             </p>
-            <p>
+            <p style={styles.readMore}>
               Read More <FontAwesomeIcon icon={faArrowRight} size="sm" />
             </p>
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
