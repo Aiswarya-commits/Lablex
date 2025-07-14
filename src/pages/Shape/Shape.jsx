@@ -89,11 +89,22 @@ const Shape = () => {
           style={{
             marginTop: "20px",
             padding: "10px 20px",
-            backgroundColor: "#333",
+            background: "linear-gradient(135deg, #ff512f, #dd2476)",
+            borderRadius: "20px",
+            marginLeft: "150px",
+            textAlign: "center",
             color: "#fff",
             border: "none",
             fontWeight: "bold",
             cursor: "pointer",
+            transition: "background 0.4s ease", // Smooth transition
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.background = "#333";
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.background =
+              "linear-gradient(135deg, #ff512f, #dd2476)";
           }}
         >
           DISCOVER MORE

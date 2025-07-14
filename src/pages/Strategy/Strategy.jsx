@@ -102,7 +102,29 @@ const StrategyCard = () => {
           custom cutting dies and can even make a special custom shape as you
           desire.
         </p>
-        <button style={styles.button}>DISCOVER MORE</button>
+        <button
+          style={{
+            marginTop: "20px",
+            padding: "10px 20px",
+            background: "linear-gradient(135deg, #ff512f, #dd2476)",
+            marginLeft:"150px",
+            borderRadius:"20px",
+            color: "#fff",
+            border: "none",
+            fontWeight: "bold",
+            cursor: "pointer",
+            transition: "background 0.10s ease", // Smooth transition
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.background =
+              "#333";
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.background = "linear-gradient(135deg, #ff512f, #dd2476)";
+          }}
+        >
+          DISCOVER MORE
+        </button>
       </div>
 
       {/* Right Side Image Section */}
