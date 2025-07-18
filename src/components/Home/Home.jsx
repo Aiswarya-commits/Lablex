@@ -9,6 +9,7 @@ import VisualSection from '../../pages/Material/Material'
 import StrategyCard from '../../pages/Strategy/Strategy'
 import Footer from '../../pages/Footer/Footer'
 import FullScreenDialog from '../../pages/Choose/Choose'
+import Images from '../../pages/Images/Images'
 
 const Home = () => {
   return (
@@ -22,6 +23,7 @@ const Home = () => {
         <VisualSection/>
         <StrategyCard/>
         <FullScreenDialog/>
+        {/* <Images/> */}
         <Footer/>
     </div>
   )
