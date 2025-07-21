@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Shape = () => {
+  const navigate = useNavigate()
   return (
     <div
       style={{
@@ -106,6 +108,7 @@ const Shape = () => {
             e.target.style.background =
               "linear-gradient(135deg, #ff512f, #dd2476)";
           }}
+          onClick={()=>navigate("/labelshape")}
         >
           DISCOVER MORE
         </button>

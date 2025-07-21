@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
@@ -8,19 +8,32 @@ import col from "../../assets/col.png";
 
 const ServiceSection = () => {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
-  const [formData, setFormData] = useState({
-    emailOrUsername: "",
-    password: "",
-    phone: "",
-    event: "",
-  });
+  const circleRef = useRef(null);
+  const imageRefs = useRef([]);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setVisible(entry.isIntersecting);
+      },
+      { threshold: 0.3 }
+    );
+
+    if (circleRef.current) {
+      observer.observe(circleRef.current);
+    }
+
+    return () => {
+      if (circleRef.current) observer.unobserve(circleRef.current);
+    };
+  }, []);
 
   const styles = {
     wrapper: {
       background: "#08141c",
       color: "white",
-      paddingTop: "80px", // margin from top (for space below the link)
+      paddingTop: "80px",
       paddingBottom: "60px",
       fontFamily: "Arial, sans-serif",
     },
@@ -29,7 +42,6 @@ const ServiceSection = () => {
       fontSize: "2.5rem",
       marginBottom: "60px",
       color: "#e74c3c",
-    
     },
     page: {
       display: "flex",
@@ -45,17 +57,32 @@ const ServiceSection = () => {
       height: "500px",
       marginBottom: "100px",
     },
-    imgCommon: {
+    circle: {
+      background: "linear-gradient(135deg, #ff512f, #dd2476)",
+      borderRadius: "50%",
+      width: "550px",
+      height: "550px",
+      position: "absolute",
+      top: "50%",
+      left: visible ? "50%" : "-100%",
+      transform: "translate(-50%, -50%)",
+      zIndex: 0,
+      transition: "left 1s ease-in-out",
+    },
+    imgCommon: (delay = "0s") => ({
       position: "absolute",
       width: "250px",
       height: "450px",
       borderRadius: "30px",
       overflow: "hidden",
       boxShadow: "0 10px 30px rgba(255, 255, 255, 0.1)",
-    },
+      opacity: visible ? 1 : 0,
+      transform: visible ? "translateY(0)" : "translateY(50px)",
+      transition: `opacity 0.8s ease ${delay}, transform 0.8s ease ${delay}`,
+    }),
     textBlock: {
       maxWidth: "500px",
-      marginLeft: "100px",
+      marginLeft: "50px",
     },
     sectionTitle: {
       display: "flex",
@@ -78,41 +105,27 @@ const ServiceSection = () => {
 
   return (
     <div style={styles.wrapper}>
-      {/* Heading under "See Our Products" */}
-      <h2 style={{...styles.heading,                fontFamily: "cursive",
-
-}}>
+      <h2 style={{ ...styles.heading, fontFamily: "cursive" }}>
         Where precision meets <br />
         <span style={{ marginLeft: "280px", color: "white", fontSize: "50px" }}>
-          {" "}
           print perfection.
         </span>
       </h2>
 
       <div style={styles.page}>
-        {/* Rotated Image Stack */}
-        <div style={styles.imageStack}>
-          <div
-  style={{
-    background: "linear-gradient(135deg, #ff512f, #dd2476)", // orange to pink gradient
-    borderRadius: "50%",
-    width: "550px",
-    height: "550px",
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    zIndex: 0,
-  }}
-></div>
+        {/* Rotated Image Stack with Animations */}
+        <div style={styles.imageStack} ref={circleRef}>
+          <div style={styles.circle}></div>
 
           <div
             style={{
-              ...styles.imgCommon,
+              ...styles.imgCommon("0s"),
               zIndex: 1,
-              transform: "rotate(-10deg)",
               top: "100px",
               left: "0px",
+              transform: visible
+                ? "rotate(-10deg) translateY(0)"
+                : "rotate(-10deg) translateY(50px)",
             }}
           >
             <img
@@ -124,11 +137,13 @@ const ServiceSection = () => {
 
           <div
             style={{
-              ...styles.imgCommon,
+              ...styles.imgCommon("0.2s"),
               zIndex: 2,
-              transform: "rotate(5deg)",
               top: "100px",
               left: "200px",
+              transform: visible
+                ? "rotate(5deg) translateY(0)"
+                : "rotate(5deg) translateY(50px)",
             }}
           >
             <img
@@ -140,11 +155,13 @@ const ServiceSection = () => {
 
           <div
             style={{
-              ...styles.imgCommon,
+              ...styles.imgCommon("0.4s"),
               zIndex: 3,
-              transform: "rotate(-3deg)",
               top: "10px",
               left: "100px",
+              transform: visible
+                ? "rotate(3deg) translateY(0)"
+                : "rotate(3deg) translateY(50px)",
             }}
           >
             <img
@@ -154,7 +171,6 @@ const ServiceSection = () => {
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
-                transform: "rotate(3deg)",
               }}
             />
           </div>
@@ -162,51 +178,38 @@ const ServiceSection = () => {
 
         {/* Text Content */}
         <div style={styles.textBlock}>
-          <div>
-            <div style={styles.sectionTitle}>
-              <img src={print} alt="" style={styles.icon} />
-              <h3 style={{ color: "#e74c3c" }}>Precision Printing</h3>
+          {[
+            {
+              icon: print,
+              title: "Precision Printing",
+              text: "We utilize advanced printing technology and state-of-the-art equipment to deliver premium-quality labels...",
+              route: "/precition",
+            },
+            {
+              icon: quality,
+              title: "Unmatched Quality",
+              text: "Exceptional quality is our signature. With meticulous attention to detail and timely execution...",
+              route: "/quality",
+            },
+            {
+              icon: col,
+              title: "Creative Collaboration",
+              text: "From initial concept to final production, we work hand-in-hand with you to bring your vision to life...",
+              route: "/collaborate",
+            },
+          ].map((item, index) => (
+            <div key={index}>
+              <div style={styles.sectionTitle}>
+                <img src={item.icon} alt="" style={styles.icon} />
+                <h3 style={{ color: "#e74c3c" }}>{item.title}</h3>
+              </div>
+              <p style={styles.paragraph}>{item.text}</p>
+              <p style={styles.readMore} onClick={() => navigate(item.route)}>
+                Read More <FontAwesomeIcon icon={faArrowRight} size="sm" />
+              </p>
+              <br />
             </div>
-            <p style={styles.paragraph}>
-              We utilize advanced printing technology and state-of-the-art
-              equipment to deliver premium-quality labels that meet
-              international standards. Every print is sharp, vibrant, and built
-              to impress.
-            </p>
-            <p style={styles.readMore}>
-              Read More <FontAwesomeIcon icon={faArrowRight} size="sm" />
-            </p>
-          </div>
-          <br />
-          <div>
-            <div style={styles.sectionTitle}>
-              <img src={quality} alt="" style={styles.icon} />
-              <h3 style={{ color: "#e74c3c" }}>Unmatched Quality</h3>
-            </div>
-            <p style={styles.paragraph}>
-              Exceptional quality is our signature. With meticulous attention to
-              detail and timely execution, we ensure flawless results every
-              time—so your brand looks its absolute best.
-            </p>
-            <p style={styles.readMore}>
-              Read More <FontAwesomeIcon icon={faArrowRight} size="sm" />
-            </p>
-          </div>
-          <br />
-          <div>
-            <div style={styles.sectionTitle}>
-              <img src={col} alt="" style={styles.icon} />
-              <h3 style={{ color: "#e74c3c" }}>Creative Collaboration</h3>
-            </div>
-            <p style={styles.paragraph}>
-              From initial concept to final production, we work hand-in-hand
-              with you to bring your vision to life. Our team offers expert
-              guidance through every stage of your label journey.
-            </p>
-            <p style={styles.readMore}>
-              Read More <FontAwesomeIcon icon={faArrowRight} size="sm" />
-            </p>
-          </div>
+          ))}
         </div>
       </div>
     </div>

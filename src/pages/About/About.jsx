@@ -85,6 +85,8 @@ const About = () => {
     color: "#e74c3c",
     fontSize: "2.5rem",
     marginBottom: "40px",
+    fontFamily: "cursive"
+    
   };
 
   const containerStyle = {
