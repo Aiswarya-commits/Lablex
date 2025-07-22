@@ -9,24 +9,36 @@ const Precision = () => {
   return (
     <div>
       <Navbar />
-      <div style={{ backgroundColor: "#cf5e00" }}></div>
-      <img
-        style={{ width: "100%", height: "500px" }}
-        src="https://www.resourcelabel.com/wp-content/uploads/2022/02/RLG-flexo-vs-digital-image-2.jpg"
-        alt=""
-      />
-      <div style={{ padding: "40px 20px", textAlign: "center" }}>
-        <h2 style={{ color: "#e74c3c", fontStyle: "italic" }}>
-          Attitude that acts as a guiding principle
-        </h2>
-        <p style={{ maxWidth: "800px", margin: "0 auto", color: "white" }}>
-          At Lablex, we believe that excellence in label manufacturing is rooted
-          in a relentless commitment to innovation, quality, and sustainability.
-          Our philosophy is not just a set of principles—it’s a culture we live
-          by, a commitment to our clients, and a dedication to continuous
-          improvement.
-        </p>
-      </div>
+
+{/* Fixed Hero Image Section */}
+<div
+  style={{
+    height: "100vh",
+    backgroundImage: `url("https://www.resourcelabel.com/wp-content/uploads/2022/02/RLG-flexo-vs-digital-image-2.jpg")`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundAttachment: "fixed",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    color: "white",
+    textAlign: "center",
+    padding: "0 20px",
+  }}
+>
+  <h2 style={{ color: "#e74c3c", fontStyle: "italic", fontSize: "32px" }}>
+    Attitude that acts as a guiding principle
+  </h2>
+  <p style={{ maxWidth: "800px", color: "white", fontSize: "18px" }}>
+    At Lablex, we believe that excellence in label manufacturing is rooted
+    in a relentless commitment to innovation, quality, and sustainability.
+    Our philosophy is not just a set of principles—it’s a culture we live
+    by, a commitment to our clients, and a dedication to continuous
+    improvement.
+  </p>
+</div>
+
       {/* Sections */}
       {[
         {

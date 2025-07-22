@@ -27,10 +27,11 @@ const About = () => {
 
   const flipCardStyle = {
     backgroundColor: "transparent",
-    width: "300px",
+    width: "90%",
+    maxWidth: "300px",
     height: "350px",
     perspective: "1000px",
-    margin: "30px 40px",
+    margin: "20px",
   };
 
   const flipCardInnerStyle = {
@@ -81,23 +82,32 @@ const About = () => {
   };
 
   const headingStyle = {
-    marginTop:"200px",
+    marginTop: "100px",
     color: "#e74c3c",
     fontSize: "2.5rem",
     marginBottom: "40px",
-    fontFamily: "cursive"
-    
+  };
+
+  const subheadingStyle = {
+    marginLeft: "0",
+    color: "white",
+    fontSize: "1.6rem",
   };
 
   const containerStyle = {
     display: "flex",
     justifyContent: "center",
     flexWrap: "wrap",
+    padding: "0 10px",
   };
 
   return (
     <div style={wrapperStyle}>
-      <h1 style={headingStyle}>Shaping Brands, <br /><span style={{marginLeft:"220px",color:"white"}}> One Label at a Time</span></h1>
+      <h1 style={{ ...headingStyle, fontFamily: "cursive" }}>
+        Shaping Brands, <br />
+        <span style={subheadingStyle}>One Label at a Time</span>
+      </h1>
+
       <div style={containerStyle}>
         {cards.map((card, index) => (
           <div
@@ -112,7 +122,7 @@ const About = () => {
                 "rotateY(0deg)";
             }}
           >
-            <div className="inner" style={{ ...flipCardInnerStyle }}>
+            <div className="inner" style={flipCardInnerStyle}>
               <div style={frontStyle}>
                 <img src={card.image} alt={card.title} style={imageStyle} />
               </div>
@@ -124,6 +134,24 @@ const About = () => {
           </div>
         ))}
       </div>
+
+      {/* Inline media query */}
+      <style>
+        {`
+          @media (max-width: 768px) {
+            h1 {
+              font-size: 1.8rem !important;
+            }
+            h1 span {
+              font-size: 1.4rem !important;
+            }
+            .inner {
+              transition: none !important;
+              transform: none !important;
+            }
+          }
+        `}
+      </style>
     </div>
   );
 };

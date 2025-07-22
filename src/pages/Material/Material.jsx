@@ -34,8 +34,9 @@ const VisualSection = () => {
       fontSize: "1.8rem",
       fontWeight: "bold",
       color: "white",
-      marginTop: "10px",
+      marginTop: "20px",
       marginBottom: "50px",
+      marginLeft:"50px"
     },
     rightColumn: {
       maxWidth: "500px",
@@ -59,6 +60,7 @@ const VisualSection = () => {
       height: "180px",
       objectFit: "cover",
       borderRadius: "4px",
+      marginRight:"25px"
     },
     bottomCircle: {
       position: "absolute",
@@ -81,7 +83,7 @@ const VisualSection = () => {
           alt="girl"
           style={{
             ...styles.img,
-            marginLeft: "90px",
+            marginLeft: "30px",
             height: "350px",
             width: "250px",
           }}

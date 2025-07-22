@@ -69,7 +69,7 @@ const Shape = () => {
           }}
         >
           Customize Label <br />
-          <span style={{ marginLeft: "180px", color: "white" }}> Shape</span>
+          <span style={{ marginLeft: "10px", color: "white" }}> Shape</span>
         </h2>
         <p
           style={{
@@ -78,10 +78,11 @@ const Shape = () => {
             color: "white",
             textAlign: "justify",
             marginTop: "20px",
+            marginLeft:"20px"
           }}
         >
-          Sigma Middle East Label Industries is in the business of manufacturing
-          self-adhesive labels. Located in United Arab Emirates, Sigma is one of
+          Lablex Middle East Label Industries is in the business of manufacturing
+          self-adhesive labels. Located in United Arab Emirates, Lablex is one of
           the leading manufacturers of self adhesive labels. We have been in the
           industry since 2010 under the ownership and care of Mr. Jagannath M
           Wagle. Years later, the company has established itself as a reputable
@@ -93,7 +94,7 @@ const Shape = () => {
             padding: "10px 20px",
             background: "linear-gradient(135deg, #ff512f, #dd2476)",
             borderRadius: "20px",
-            marginLeft: "150px",
+            marginLeft: "90px",
             textAlign: "center",
             color: "#fff",
             border: "none",

@@ -35,30 +35,36 @@ const Quality = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <div style={{ position: "relative" }}>
-        <img
-          src="https://www.foodpackaginglabels.net/wp-content/uploads/2019/04/food-packaging-labels-overview.jpg"
-          alt="Quality Hero"
-          style={{ width: "100%", maxHeight: "500px", objectFit: "cover" }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            color: "white",
-            textAlign: "center",
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-            padding: "20px 40px",
-            borderRadius: "10px",
-          }}
-        >
-          <h1 style={{ fontSize: "42px", margin: 0, color: "#ffcc00" }}>
-            Unmatched Label Quality at Every Layer
-          </h1>
-        </div>
-      </div>
+      {/* Fixed Background Hero Section */}
+<div
+  style={{
+    height: "100vh",
+    backgroundImage: `url("https://www.foodpackaginglabels.net/wp-content/uploads/2019/04/food-packaging-labels-overview.jpg")`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundAttachment: "fixed",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
+    padding: "0 20px",
+    color: "white",
+    position: "relative",
+  }}
+>
+  <div
+    style={{
+      backgroundColor: "rgba(0, 0, 0, 0.6)",
+      padding: "30px 60px",
+      borderRadius: "10px",
+    }}
+  >
+    <h1 style={{ fontSize: "42px", margin: 0, color: "#ffcc00" }}>
+      Unmatched Label Quality at Every Layer
+    </h1>
+  </div>
+</div>
+
       <h2
         style={{
           fontSize: "36px",

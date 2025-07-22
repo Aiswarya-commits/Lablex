@@ -9,24 +9,35 @@ const Collaboration = () => {
   return (
     <div>
       <Navbar />
-      <div style={{ backgroundColor: "#cf5e00" }}></div>
-      <img
-        style={{ width: "100%", height: "500px" }}
-        src="https://label.co.uk/inhalte/uploads/bottle-labels-juice.png"
-        alt=""
-      />
-      <div style={{ padding: "40px 20px", textAlign: "center" }}>
-        <h2 style={{ color: "#e74c3c", fontStyle: "italic" }}>
-          Attitude that acts as a guiding principle
-        </h2>
-        <p style={{ maxWidth: "800px", margin: "0 auto", color: "white" }}>
-          At Lablex, we believe that excellence in label manufacturing is rooted
-          in a relentless commitment to innovation, quality, and sustainability.
-          Our philosophy is not just a set of principles—it’s a culture we live
-          by, a commitment to our clients, and a dedication to continuous
-          improvement.
-        </p>
-      </div>
+      <div
+  style={{
+    height: "100vh",
+    backgroundImage:
+      'url("https://label.co.uk/inhalte/uploads/bottle-labels-juice.png")',
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundAttachment: "fixed",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    color: "white",
+    textAlign: "center",
+    padding: "0 20px",
+  }}
+>
+  <div
+    style={{
+      backgroundColor: "rgba(0,0,0,0.6)",
+      padding: "30px 60px",
+      borderRadius: "10px",
+    }}
+  >
+    <h1 style={{ fontSize: "40px", color: "#ffcc00", margin: 0 }}>
+      Your Vision, Our Labels
+    </h1>
+  </div>
+</div>
+
       {/* Sections */}
       {[
         {
