@@ -71,6 +71,7 @@ export default function FullScreenDialog() {
                 height: "100%",
                 borderRadius: "80px 0px 80px 0px",
                 display: "block",
+                
               }}
             />
             {isHovered && (
@@ -163,8 +164,8 @@ export default function FullScreenDialog() {
                 </h2>
                 <p>
                   Our skilled and experienced professionals bring years of
-                  industry knowledge to every project. <br /> From label design
-                  to final delivery, we ensure quality at every stage
+                  industry <br /> knowledge to every project. From label design
+                  to final delivery, we <br /> ensure quality at every stage
                 </p>
 
                 <h2
@@ -177,9 +178,9 @@ export default function FullScreenDialog() {
                   Cost-Effective Printing Solutions
                 </h2>
                 <p>
-                  We believe premium printing shouldn't come at a premium price.
-                  Our services are competitively <br /> priced to offer the best
-                  value without compromising quality
+                  We believe premium printing shouldn't come at a premium price. <br />
+                  Our services are competitively priced to offer the best
+                  value without <br /> compromising quality
                 </p>
 
                 <h2
@@ -193,8 +194,8 @@ export default function FullScreenDialog() {
                 </h2>
                 <p>
                   We pay attention to the finest details. Every print we produce
-                  is sharp, clear, and perfectly <br /> aligned — delivering a
-                  flawless final product that exceeds expectations.
+                  is <br /> sharp, clear, and perfectly aligned — delivering a
+                  flawless final <br /> product that exceeds expectations.
                 </p>
 
                 <h2
@@ -208,14 +209,14 @@ export default function FullScreenDialog() {
                 </h2>
                 <p>
                   Thanks to our efficient logistics and localized production
-                  units, we help you save on transport <br /> while ensuring
-                  timely delivery across locations.
+                  units,<br /> we help you save on transport while ensuring
+                  timely delivery <br /> across locations.
                 </p>
               </div>
 
               <img
                 style={{
-                  marginLeft: "50px",
+                  marginLeft: "150px",
                   borderRadius: "80px 0px 80px 0px",
                   height: "500px",
                   width: "550px",

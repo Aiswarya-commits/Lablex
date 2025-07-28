@@ -84,8 +84,8 @@ const About = () => {
   const headingStyle = {
     marginTop: "100px",
     color: "#e74c3c",
-    fontSize: "2.2rem",
-    marginBottom: "30px",
+    fontSize: "2.5rem",
+    marginBottom: "40px",
   };
 
   const subheadingStyle = {
