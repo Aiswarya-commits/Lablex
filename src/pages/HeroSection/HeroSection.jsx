@@ -1,22 +1,61 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import canImage from "../../assets/canimage.png";
 
 const HeroSection = () => {
+  const [scrollDirection, setScrollDirection] = useState("in");
+
+  // Detect scroll direction
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const updateDirection = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY) {
+        setScrollDirection("out"); // scrolling down
+      } else {
+        setScrollDirection("in"); // scrolling up
+      }
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener("scroll", updateDirection);
+    return () => {
+      window.removeEventListener("scroll", updateDirection);
+    };
+  }, []);
+
   return (
     <div style={styles.container}>
-      <div style={styles.sidebar}>
-      </div>
-
-      {/* Center Background Text */}
-      <div style={styles.backgroundText}>LABLEX</div>
+      {/* Background Text */}
+      <motion.div
+        style={styles.backgroundText}
+        initial={{ y: 300, opacity: 0 }}
+        animate={
+          scrollDirection === "in"
+            ? { y: "0%", opacity: 1 }
+            : { y: 300, opacity: 0 }
+        }
+        transition={{ duration: 1, ease: "easeInOut" }}
+      >
+        LABELEX
+      </motion.div>
 
       {/* Can Image */}
-      <div style={styles.imageContainer}>
+      <motion.div
+        style={styles.imageContainer}
+        initial={{ x: -300, opacity: 0 }}
+        animate={
+          scrollDirection === "in"
+            ? { x: 0, opacity: 1 }
+            : { x: 300, opacity: 0 }
+        }
+        transition={{ duration: 1.2, ease: "easeInOut" }}
+      >
         <img src={canImage} alt="can" style={styles.canImage} />
-      </div>
+      </motion.div>
 
-
-      {/* Bottom Center Link */}
+      {/* Bottom Link */}
       <div style={styles.bottomLink}>
         <a
           href="#products"
@@ -29,45 +68,27 @@ const HeroSection = () => {
   );
 };
 
-// Inline CSS Styles
+// Styles
 const styles = {
   container: {
     position: "relative",
     width: "100%",
     height: "100vh",
-    backgroundColor: "white",
-    color: "black",
-    fontFamily: "'Helvetica Neue', sans-serif",
+    backgroundColor: "#08141c",
     overflow: "hidden",
-  },
-  sidebar: {
-    position: "absolute",
-    top: "50%",
-    left: "20px",
-    transform: "translateY(-50%)",
-    display: "flex",
-    flexDirection: "column",
-    gap: "40px",
-    fontSize: "12px",
-    letterSpacing: "2px",
-    zIndex: 2,
-  },
-  verticalText: {
-    transform: "rotate(-90deg)",
-    transformOrigin: "left",
-    whiteSpace: "nowrap",
+    fontFamily: "'Helvetica Neue', sans-serif",
   },
   backgroundText: {
     position: "absolute",
-    top: "50%",
-    left: "50%",
+    top: "150px",
+    left: "50px",
     transform: "translate(-50%, -50%)",
-    fontSize: "380px",
-    color: "rgba(228, 116, 41, 0.3)",
+    fontSize: "clamp(90px, 20vw, 360px)",
+    color: "rgba(226, 196, 175, 0.3)",
     fontWeight: "bold",
-    zIndex: 0,
-    letterSpacing: "-5px",
+    letterSpacing: "-0px",
     whiteSpace: "nowrap",
+    zIndex: 0,
   },
   imageContainer: {
     position: "relative",
@@ -78,26 +99,17 @@ const styles = {
     alignItems: "center",
   },
   canImage: {
-    width: "400px",
+    width: "clamp(200px, 50vw, 400px)",
     transform: "rotate(25deg)",
-  },
-  rightText: {
-    position: "absolute",
-    right: "40px",
-    top: "50%",
-    transform: "translateY(-50%)",
-    fontSize: "12px",
-    lineHeight: "1.6",
-    maxWidth: "180px",
-    zIndex: 2,
   },
   bottomLink: {
     position: "absolute",
     bottom: "30px",
     left: "50%",
     transform: "translateX(-50%)",
-    fontSize: "14px",
+    fontSize: "clamp(12px, 2vw, 16px)",
     zIndex: 2,
+    textAlign: "center",
   },
 };
 

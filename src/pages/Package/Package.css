@@ -1,0 +1,188 @@
+.destination {
+  min-height: 100vh;
+  padding: 4rem 0;
+  overflow: hidden;
+}
+
+.destination .container .content {
+  display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: 2rem;
+    height: 100vh;
+}
+
+.destination .container .content .title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: .5rem;
+}
+
+.destination .container .content .title h1 {
+  font: 400 3rem "Audiowide", sans-serif;
+  letter-spacing: .3em;
+}
+
+.destination .container .content .title p {
+  font-size: 1.1rem;
+  color: var(--lightgray);
+}
+
+.destination .container .content .title a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--white);
+  font-size: .8rem;
+  padding: 4px;
+  border: 2px solid var(--lightgray);
+  border-radius: 12px;
+  background-color: transparent;
+  backdrop-filter: blur(2px);
+  width: 20%;
+}
+
+.destination .container .content .title a:hover {
+  background-color: var(--darkgray);
+}
+
+.destination .container .content .items {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid var(--darkgray);
+  border-radius: 32px;
+}
+
+.destination .container .content .items a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--white);
+  font-size: .8rem;
+  padding: 4px;
+  border: 2px solid var(--lightgray);
+  border-radius: 12px;
+  background-color: transparent;
+  backdrop-filter: blur(2px);
+  width: 125px;
+}
+
+.destination .container .content .items a:hover {
+  background-color: var(--darkgray);
+}
+
+.destination .container .content .items a .icon {
+  width: 16px;
+}
+
+.destination .container .content .items h1 {
+  font: italic bold 1.5rem "Audiowide", sans-serif;
+}
+
+.destination .container .content .title {
+  grid-column: span 2 / span 2;
+  grid-row: span 2 / span 2;
+}
+
+.destination .container .content .saturn {
+  grid-column: span 2 / span 2;
+  grid-row: span 2 / span 2;
+  grid-column-start: 3;
+  background: url("https://www.designerpeople.com/wp-content/uploads/2024/07/Medicine-Label-Design-1024x1024.png");
+}
+
+.destination .container .content .moon {
+  grid-column: span 2 / span 2;
+  grid-row: span 2 / span 2;
+  grid-column-start: 1;
+  grid-row-start: 3;
+  padding: 1rem;
+  background: url("https://eatrightindia.gov.in/images/readlabel6.jpg");
+  background-size: cover;
+  background-position: center;
+  border: 2px solid var(--darkgray);
+  border-radius: 32px;
+}
+
+.destination .container .content .eyropa {
+  grid-row: span 2 / span 2;
+  grid-column-start: 3;
+  grid-row-start: 3;
+  padding: 1rem;
+  background: url("https://www.shutterstock.com/image-vector/water-packaging-label-plastic-bottle-260nw-2324579085.jpg");
+  background-size: cover;
+  background-position: center;
+  border: 2px solid var(--darkgray);
+  border-radius: 32px;
+}
+
+.destination .container .content .mercury {
+  grid-row: span 2 / span 2;
+  grid-column-start: 4;
+  grid-row-start: 3;
+  padding: 1rem;
+  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpc607jDj0mYEEhH3D0yvN0D_n0bgRI74ptg&s");
+  background-size: cover;
+  background-position: center;
+  border: 2px solid var(--darkgray);
+  border-radius: 32px;
+}
+
+.destination .container .content .blackhole {
+  grid-column: span 2 / span 2;
+  grid-row: span 4 / span 4;
+  grid-column-start: 1;
+  grid-row-start: 5;
+  padding: 1rem;
+  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh-72_k-cgFQL4qpbCvWC2AlSIo2XETkTufQ&s");
+  background-size: cover;
+  background-position: center;
+  border: 2px solid var(--darkgray);
+  border-radius: 32px;
+}
+
+.destination .container .content .titan {
+  grid-row: span 2 / span 2;
+  grid-column-start: 3;
+  grid-row-start: 5;
+  padding: 1rem;
+  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-x5LQPDImgyIqAK-PBSRgryxYNRoqfv7I7g&s");
+  background-size: cover;
+  background-position: center;
+  border: 2px solid var(--darkgray);
+  border-radius: 32px;
+}
+
+.destination .container .content .neptune {
+  grid-row: span 2 / span 2;
+  grid-column-start: 4;
+  grid-row-start: 5;
+  padding: 1rem;
+  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDewS5Vr_O0WOSzUGGrk8FGuY1j8fVLT0GRDu3GHuV_OHVa3_04BZeJuTpc9ZNZ4tb_Vk&usqp=CAU");
+  background-size: cover;
+  background-position: center;
+  border: 2px solid var(--darkgray);
+  border-radius: 32px;
+}
+
+.destination .container .content .mars {
+  grid-column: span 2 / span 2;
+  grid-row: span 2 / span 2;
+  grid-column-start: 3;
+  grid-row-start: 7;
+  padding: 1rem;
+  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUGLimh8zuBhtoh_XoEdWeB0vBSxT3aJViKw&s");
+  background-size: cover;
+  background-position: center;
+  border: 2px solid var(--darkgray);
+  border-radius: 32px;
+}
