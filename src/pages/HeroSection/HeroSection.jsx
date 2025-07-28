@@ -56,14 +56,14 @@ const HeroSection = () => {
       </motion.div>
 
       {/* Bottom Link */}
-      <div style={styles.bottomLink}>
+      {/* <div style={styles.bottomLink}>
         <a
           href="#products"
           style={{ color: "#fff", textDecoration: "underline" }}
         >
           See Our Products
         </a>
-      </div>
+      </div> */}
     </div>
   );
 };
