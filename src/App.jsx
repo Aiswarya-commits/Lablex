@@ -6,6 +6,7 @@ import Quality from "./pages/QualityMain/Quality";
 import Collaboration from "./pages/Collaboration/Collaboration";
 import Sizeandshape from "./pages/SizeandshapeMain/Sizeandshape";
 import Labelshape from "./pages/Labelshape/Labelshape";
+import ImageGallery from "./pages/ScrollImage/ScrollImage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/collaborate" element={<Collaboration/>}/>
           <Route path="/sizeandshape" element={<Sizeandshape/>}/>
           <Route path="/labelshape" element={<Labelshape/>}/>
+          <Route path="/imagegallery" element={<ImageGallery/>}/>
         </Routes>
       </BrowserRouter>
     </>
