@@ -10,6 +10,7 @@ import StrategyCard from '../../pages/Strategy/Strategy'
 import Footer from '../../pages/Footer/Footer'
 import FullScreenDialog from '../../pages/Choose/Choose'
 import Images from '../../pages/Images/Images'
+import ImageGallery from '../../pages/ScrollImage/ScrollImage'
 
 const Home = () => {
   return (
@@ -20,7 +21,8 @@ const Home = () => {
         <CustomizeSection/>
         <About/>
         <Shape/>
-        <VisualSection/>
+        <ImageGallery/>
+        {/* <VisualSection/> */}
         <StrategyCard/>
         <FullScreenDialog/>
         {/* <Images/> */}
